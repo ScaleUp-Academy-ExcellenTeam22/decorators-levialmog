@@ -1,3 +1,6 @@
+import functools
+
+
 def type_check(correct_type):
     """
     The function gets a type that need to check if it's correct type and call to decorator_type_check function.
@@ -10,6 +13,7 @@ def type_check(correct_type):
         :param func: The function that get.
         :return: The answer of inner function.
         """
+        @functools.wraps(func)
         def inner(variable):
             """
             The function gets a variable and checks if its type is the same as the wanted type(correct_type),
