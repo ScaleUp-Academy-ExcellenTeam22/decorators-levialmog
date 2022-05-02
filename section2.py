@@ -1,10 +1,13 @@
-def change_functionality(_):
+from typing import Callable
+
+
+def change_functionality(_: type) -> Callable:
     """
     The function gets function(times2) and call to inner function.
-    :param _: The func, but we will not use this variable.
-    :return: The answer of inner function.
+    :param _: The function, but we will not use this variable.
+    :return: The answer of the inner function.
     """
-    def inner(_):
+    def inner(_: Callable) -> Callable:
         """
         The function prints Surprise!.
         :param _: The number, but we will not use this variable.
@@ -14,7 +17,7 @@ def change_functionality(_):
 
 
 @change_functionality
-def times2(number):
+def times2(number: int) -> int:
     """
     The function gets a number and first, calls to decorator function - type_check.
     :param number: The number that the function gets.
